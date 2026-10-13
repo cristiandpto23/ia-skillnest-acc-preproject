@@ -1,0 +1,25 @@
+## consulta API en REST Client 
+## tener instalado extensión REST Client 
+## cambiar extensión de .example a .https
+## reemplazar CLAVE_API por su API
+
+### Variables
+@apiKey = CLAVE_API
+@model = gemini-3.5-flash-lite
+
+### Consulta estándar (generateContent)
+POST https://generativelanguage.googleapis.com/v1beta/models/{{model}}:generateContent
+Content-Type: application/json
+x-goog-api-key: {{apiKey}}
+
+{
+  "contents": [
+    {
+      "parts": [
+        {
+          "text": "¿El llamado a la API de Gemini está funcionando? Es decir, ¿te llega este mensaje?"
+        }
+      ]
+    }
+  ]
+}
