@@ -23,5 +23,3 @@ def obtener_datos_gemini(pregunta):
     return datos["candidates"][0]["content"]["parts"][0]["text"]
     
 print(obtener_datos_gemini("¿Cuál es la capital de Francia?"))
-
-
