@@ -31,6 +31,9 @@ def extraer_texto(datos):
         return datos["candidates"][0]["content"]["parts"][0]["text"]
     except (KeyError, IndexError):
         raise RuntimeError("La respuesta no trae el texto generado en el lugar esperado.")
+
+
+
     
 def obtener_dato_de_prueba(pregunta):
     url, body = armar_peticion(pregunta)
