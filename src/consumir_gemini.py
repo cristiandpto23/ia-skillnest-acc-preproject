@@ -75,8 +75,10 @@ def parsear_respuesta_json(texto):
     except json.JSONDecodeError:
         raise ValueError("El texto no es un JSON válido.")
 
+    """
     if "categoria" not in datos or "confianza" not in datos:
         raise ValueError("El JSON no contiene las claves requeridas 'categoria' y 'confianza'.")
+    """
 
     return datos
  
