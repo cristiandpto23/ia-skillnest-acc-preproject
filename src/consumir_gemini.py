@@ -5,12 +5,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-def armar_peticion(pregunta):
+def armar_peticion(pregunta, modelo="gemini-3.5-flash-lite"):
     pregunta = pregunta.strip()
     if not pregunta:
         raise ValueError("La pregunta no puede estar vacía.")
     api_key = os.getenv("GEMINI_API_KEY")
-    modelo = "gemini-3.5-flash-lite"
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{modelo}:generateContent?key={api_key}"
     body = {"contents": [{"parts": [{"text": pregunta}]}]}
     return url, body
@@ -35,8 +34,8 @@ def extraer_texto(datos):
 
 
     
-def obtener_dato_de_prueba(pregunta):
-    url, body = armar_peticion(pregunta)
+def obtener_dato_de_prueba(pregunta, modelo="gemini-3.5-flash-lite"):
+    url, body = armar_peticion(pregunta, modelo)
     datos = enviar_peticion(url, body)
     return extraer_texto(datos)
 
