@@ -17,6 +17,8 @@ python-dotenv==1.2.4
     # via test-uv
 requests==2.34.2
     # via test-uv
+termcolor==3.3.0
+    # via test-uv
 typing-extensions==4.16.0
     # via
     #   pydantic
