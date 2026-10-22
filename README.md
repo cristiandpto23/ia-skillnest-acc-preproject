@@ -1,27 +1,72 @@
-# Plantilla de repositorio base — Especialización en Desarrollo con IA Generativa (Accenture)
+# Proyecto IA (GATE 1)
 
-Esta es la estructura base que vas a usar como punto de partida para tu proyecto en este programa. Es la misma estructura que vas a ir ampliando bloque a bloque, hasta llegar a la aplicación completa que entregas en el Gate 3.
+Aplicación de consola en Python que envía preguntas a la API de Gemini y muestra una respuesta breve en formato JSON, con categoría y nivel de confianza.
 
-## Cómo empezar
+## Requisitos
 
-Estos pasos se completan de forma progresiva a lo largo de la Unidad U1.2, no todos el mismo día:
+- Python 3.12 o superior.
+- Una clave de API de Gemini.
 
-1. Descarga este archivo comprimido (adjunto en la plataforma) y descomprímelo en tu computador. Inicializa el control de versiones sobre esa carpeta y registra tu primer commit con esta estructura base, tal como llegó, antes de modificar nada.
-2. Crea tu entorno virtual de Python (por ejemplo, con `venv`) y actívalo.
-3. Instala las dependencias que necesites y regístralas en `requirements.txt` (al inicio puede estar vacío o con muy pocas).
-4. Copia `.env.example` a un archivo nuevo llamado `.env`, y completa ahí tus credenciales reales (llaves de API, tokens). El archivo `.env` nunca se sube al repositorio: ya está excluido en `.gitignore`.
+## Configuración
 
-## Estructura de carpetas
+Los ejemplos incluyen comandos para PowerShell en Windows y para una shell de Linux.
 
-- `src/` : todo el código fuente de tu proyecto va aquí.
-- `docs/` : documentación técnica del proyecto (diagramas, decisiones de arquitectura, notas).
-- `tests/` : pruebas de tu código (las vas a usar más adelante en el programa, cuando el proyecto lo requiera).
-- `requirements.txt` : dependencias de Python de tu proyecto, para que cualquier otra persona pueda reconstruir tu entorno con un solo comando.
-- `.env.example` : plantilla de las variables de entorno que tu proyecto necesita, sin valores reales. Tu archivo `.env` real (con tus credenciales) nunca se commitea.
-- `.gitignore` : le dice a Git qué archivos y carpetas ignorar (entre ellos, tu entorno virtual y tu archivo `.env`).
+1. Clona el repositorio y entra en su carpeta raíz.
+2. Crea y activa un entorno virtual (opcional si usas `uv`). En PowerShell:
 
-## Reglas que se mantienen durante todo el programa
+   ```powershell
+   py -m venv .venv
+   .\.venv\Scripts\Activate.ps1
+   ```
 
-- Ningún secreto (contraseña, llave de API, token) va escrito directamente en el código ni en ningún archivo que se suba al repositorio.
-- Cada proyecto nuevo tiene su propio entorno virtual: no se comparten dependencias entre proyectos distintos.
-- Todo el trabajo que se entrega en este programa vive en un repositorio de GitHub, sin excepción.
+   En Linux:
+
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
+   ```
+
+3. Instala el proyecto y sus dependencias con `pip` (el comando es igual en PowerShell y Linux):
+
+   ```powershell
+   python -m pip install -r requirements.txt
+   ```
+
+   O con `uv`:
+
+   ```powershell
+   uv sync
+   ```
+
+4. Copia `.env.example` a `.env` y agrega tu clave de Gemini:
+
+   ```env
+   GEMINI_API_KEY=tu_clave_de_gemini
+   ```
+
+   No compartas ni subas `.env`; está excluido de Git.
+
+## Ejecución
+
+Desde la raíz del proyecto y con el entorno virtual activado, en PowerShell o Linux:
+
+```powershell
+python main.py
+```
+
+El programa consulta Gemini con dos preguntas de ejemplo e imprime las respuestas y el costo estimado a partir del uso de tokens informado por la API.
+
+## Estructura
+
+```text
+.
+├── main.py                    # Ejemplo ejecutable
+├── src/proyecto_ia/           # Paquete de Python
+│   └── consumir_gemini.py     # Construcción de solicitudes y manejo de respuestas
+├── prompts/                   # Banco de prompts y experimento de consistencia
+├── docs/                      # Documentación del proyecto
+├── tests/                     # Espacio para pruebas automatizadas
+├── .env.example               # Plantilla de configuración local
+├── pyproject.toml             # Metadatos y dependencias del paquete
+└── requirements.txt           # Instalación reproducible con pip
+```
