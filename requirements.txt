@@ -10,15 +10,15 @@ charset-normalizer==3.5.2
 idna==3.20
     # via requests
 pydantic==2.14.1
-    # via test-uv
+    # via proyecto-ia
 pydantic-core==2.50.1
     # via pydantic
 python-dotenv==1.2.4
-    # via test-uv
+    # via proyecto-ia
 requests==2.34.2
-    # via test-uv
+    # via proyecto-ia
 termcolor==3.3.0
-    # via test-uv
+    # via proyecto-ia
 typing-extensions==4.16.0
     # via
     #   pydantic

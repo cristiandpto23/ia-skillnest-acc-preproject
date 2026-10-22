@@ -4,7 +4,7 @@ import time
 from banco import BANCO_DE_PROMPTS
 from termcolor import cprint
 
-from consumir_gemini import (
+from proyecto_ia.consumir_gemini import (
 	armar_peticion,
 	enviar_peticion,
 	extraer_texto,

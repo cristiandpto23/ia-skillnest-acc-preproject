@@ -1,4 +1,4 @@
-import consumir_gemini
+from proyecto_ia import consumir_gemini
 
 print(consumir_gemini.__file__)
 
